@@ -1,0 +1,685 @@
+/* ==========================================================================
+   Responsive Enhancements for All Devices (Mobile, Tablet, Desktop, Ultrawide)
+   ========================================================================== */
+
+/* Prevent horizontal overflow on any device */
+html,
+body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Ensure images and media never overflow container */
+img,
+video,
+canvas,
+svg,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent iOS input auto-zoom by ensuring minimum 16px font size on inputs */
+input,
+select,
+textarea {
+  font-size: 16px !important;
+}
+
+/* --- Mobile Navigation Bar (< 960px) --- */
+@media (max-width: 960px) {
+  .header {
+    padding: 12px 18px !important;
+  }
+
+  .header .logo {
+    font-size: 1.1rem;
+    max-width: calc(100% - 55px);
+  }
+
+  .header .menu-icon {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    z-index: 1002;
+  }
+
+  .mobile-backdrop {
+    display: block;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 998;
+  }
+
+  .header ul.menu {
+    position: fixed !important;
+    top: 60px !important;
+    left: 0 !important;
+    right: 0 !important;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-direction: column !important;
+    gap: 6px !important;
+    padding: 0 16px !important;
+    background-color: #0c101a !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8) !important;
+    transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.25s ease, padding 0.3s ease, visibility 0.3s ease !important;
+    z-index: 1001 !important;
+  }
+
+  .header:not(.dark-menu) ul.menu {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .header.menu-is-open ul.menu {
+    max-height: 85vh !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    padding: 16px 16px 24px !important;
+    pointer-events: auto !important;
+  }
+
+  .header ul.menu li {
+    width: 100% !important;
+  }
+
+  .header ul.menu li a {
+    display: flex !important;
+    width: 100% !important;
+    padding: 11px 14px !important;
+    font-size: 0.98rem !important;
+    border-radius: 8px !important;
+  }
+
+  .header .nav-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: 100% !important;
+    margin: 10px 0 0 !important;
+    padding-top: 14px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .header:not(.dark-menu) .nav-actions {
+    border-top-color: rgba(0, 0, 0, 0.08) !important;
+  }
+
+  .header .nav-resume-group {
+    display: flex !important;
+    width: 100% !important;
+    gap: 8px !important;
+  }
+
+  .header .nav-resume-group .nav-resume-btn,
+  .header .nav-resume-group .nav-download-btn {
+    flex: 1 1 50% !important;
+    justify-content: center !important;
+    text-align: center !important;
+    font-size: 0.85rem !important;
+    height: 40px !important;
+  }
+
+  .header .nav-extras {
+    display: flex !important;
+    width: 100% !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+}
+
+/* --- Hero Section Responsiveness --- */
+@media (max-width: 960px) {
+  .greet-main {
+    padding: 90px 4% 40px !important;
+  }
+
+  .greeting-container {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  .hero-terminal-wrapper {
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .floating-badge {
+    display: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .greet-main {
+    padding: 80px 3.5% 30px !important;
+  }
+
+  .greeting-title {
+    font-size: clamp(1.75rem, 7vw, 2.4rem) !important;
+  }
+
+  .greeting-role {
+    font-size: clamp(1rem, 4.5vw, 1.25rem) !important;
+  }
+
+  .greeting-description {
+    font-size: 0.95rem !important;
+    margin-bottom: 24px !important;
+  }
+
+  .profile-photo-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    padding: 16px !important;
+    gap: 14px !important;
+  }
+
+  .profile-card-header {
+    display: flex !important;
+    gap: 12px !important;
+    align-items: center !important;
+  }
+
+  .profile-avatar-ring {
+    width: 68px !important;
+    height: 68px !important;
+  }
+
+  .profile-card-name {
+    font-size: 1.15rem !important;
+  }
+
+  .profile-card-stats {
+    display: flex !important;
+    border-left: none !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding-left: 0 !important;
+    padding-top: 12px !important;
+    margin-left: 0 !important;
+    justify-content: space-around !important;
+    width: 100% !important;
+  }
+
+  .light-theme .profile-card-stats {
+    border-top-color: rgba(0, 0, 0, 0.08) !important;
+  }
+
+  .stat-num {
+    font-size: 1.15rem !important;
+  }
+
+  .stat-lbl {
+    font-size: 0.65rem !important;
+  }
+
+  .hero-cta-buttons {
+    width: 100% !important;
+    gap: 10px !important;
+  }
+
+  .cta-group {
+    display: flex !important;
+    width: 100% !important;
+    gap: 8px !important;
+  }
+
+  .btn {
+    flex: 1 1 calc(50% - 4px) !important;
+    justify-content: center !important;
+    font-size: 0.86rem !important;
+    padding: 10px 12px !important;
+  }
+
+  .terminal-window {
+    border-radius: 12px !important;
+  }
+
+  .terminal-header {
+    padding: 10px 12px !important;
+    gap: 10px !important;
+  }
+
+  .terminal-tabs {
+    gap: 4px !important;
+  }
+
+  .tab-btn {
+    font-size: 0.76rem !important;
+    padding: 4px 8px !important;
+  }
+
+  .terminal-body {
+    padding: 14px 12px !important;
+    font-size: 0.78rem !important;
+    min-height: 200px !important;
+  }
+
+  .terminal-footer {
+    padding: 8px 12px !important;
+    font-size: 0.72rem !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .cta-group {
+    flex-direction: column !important;
+  }
+
+  .btn {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+  }
+}
+
+/* --- About Section Responsiveness --- */
+@media (max-width: 960px) {
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-section {
+    padding: 36px 3.5% !important;
+  }
+
+  .about-narrative-card {
+    padding: 20px 16px !important;
+  }
+
+  .narrative-text {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .highlight-item {
+    font-size: 0.88rem !important;
+    gap: 8px !important;
+  }
+
+  .stat-card {
+    padding: 16px 14px !important;
+    gap: 14px !important;
+  }
+
+  .stat-icon-wrapper {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 1.15rem !important;
+  }
+}
+
+/* --- Skills Command Center Responsiveness --- */
+@media (max-width: 1024px) {
+  .console-body {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    padding: 24px 20px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .console-header-bar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+    padding: 12px 14px !important;
+  }
+
+  .console-window-dots {
+    width: 100% !important;
+  }
+
+  .console-prompt-text {
+    display: inline-block !important;
+    font-size: 0.78rem !important;
+  }
+
+  .console-category-nav {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 6px !important;
+    padding-bottom: 4px !important;
+    width: 100% !important;
+    scrollbar-width: none;
+  }
+
+  .console-category-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .category-pill-btn {
+    font-size: 0.82rem !important;
+    padding: 6px 12px !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .skills-command-center {
+    padding: 36px 3.5% !important;
+  }
+
+  .category-heading {
+    font-size: 1.35rem !important;
+  }
+
+  .category-summary-desc {
+    font-size: 0.88rem !important;
+    margin-bottom: 18px !important;
+  }
+
+  .fluid-tech-pills-cloud {
+    gap: 8px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .fluid-tech-badge {
+    padding: 7px 12px !important;
+    gap: 8px !important;
+  }
+
+  .fluid-tech-badge .badge-name {
+    font-size: 0.84rem !important;
+  }
+
+  .engineering-capabilities {
+    padding: 16px 14px !important;
+  }
+
+  .code-editor-viewport {
+    padding: 14px 12px !important;
+    font-size: 0.76rem !important;
+    max-height: 280px !important;
+  }
+
+  .inspector-footer {
+    padding: 10px 12px !important;
+    gap: 8px !important;
+  }
+}
+
+/* --- Architecture Section Responsiveness --- */
+@media (max-width: 768px) {
+  .architecture-section {
+    padding: 36px 0 !important;
+  }
+
+  .architecture-node-card {
+    width: clamp(260px, 80vw, 300px) !important;
+    min-width: clamp(260px, 80vw, 300px) !important;
+    max-width: clamp(260px, 80vw, 300px) !important;
+    padding: 18px 16px !important;
+    border-radius: 14px !important;
+  }
+
+  .node-title {
+    font-size: 1.1rem !important;
+  }
+
+  .node-tech-pill {
+    font-size: 0.75rem !important;
+  }
+
+  .node-desc {
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+  }
+}
+
+/* --- Projects Section Responsiveness --- */
+@media (max-width: 960px) {
+  .projects-section {
+    padding: 36px 4% !important;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-section {
+    padding: 32px 3.5% !important;
+  }
+
+  .modern-project-card {
+    padding: 20px 16px !important;
+    border-radius: 14px !important;
+  }
+
+  .project-heading {
+    font-size: 1.22rem !important;
+  }
+
+  .project-summary {
+    font-size: 0.92rem !important;
+    margin-bottom: 16px !important;
+  }
+
+  .features-list-wrapper {
+    padding: 14px 14px !important;
+    margin-bottom: 18px !important;
+  }
+
+  .feature-item {
+    font-size: 0.84rem !important;
+  }
+
+  .tech-stack-row {
+    gap: 6px !important;
+    margin-bottom: 18px !important;
+  }
+
+  .tech-pill {
+    font-size: 0.75rem !important;
+    padding: 3px 8px !important;
+  }
+
+  .project-actions-row {
+    gap: 8px !important;
+  }
+
+  .action-btn {
+    flex: 1 1 calc(50% - 4px) !important;
+    padding: 9px 12px !important;
+    font-size: 0.82rem !important;
+    min-height: 38px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .action-btn {
+    flex: 1 1 100% !important;
+    width: 100% !important;
+  }
+}
+
+/* --- Experience & Education Responsiveness --- */
+@media (max-width: 600px) {
+  .experience-section {
+    padding: 36px 3.5% !important;
+  }
+
+  .timeline-item {
+    gap: 12px !important;
+  }
+
+  .marker-dot {
+    width: 34px !important;
+    height: 34px !important;
+    font-size: 0.85rem !important;
+  }
+
+  .timeline-card {
+    padding: 18px 14px !important;
+    margin-bottom: 22px !important;
+  }
+
+  .company-name {
+    font-size: 1.18rem !important;
+  }
+
+  .role-title {
+    font-size: 0.8rem !important;
+  }
+
+  .timeline-date-badge {
+    font-size: 0.78rem !important;
+    padding: 4px 10px !important;
+  }
+
+  .timeline-desc {
+    font-size: 0.92rem !important;
+  }
+
+  .bullet-point {
+    font-size: 0.85rem !important;
+  }
+
+  .education-timeline-wrapper {
+    margin-top: 32px !important;
+    padding-top: 28px !important;
+  }
+
+  .education-block-title {
+    font-size: 1.2rem !important;
+  }
+
+  .education-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .education-card-modern {
+    padding: 16px 14px !important;
+  }
+}
+
+/* --- Contact Section Responsiveness --- */
+@media (max-width: 960px) {
+  .contact-section {
+    padding: 36px 4% !important;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 22px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-section {
+    padding: 32px 3.5% !important;
+  }
+
+  .contact-info-panel,
+  .contact-form-card {
+    padding: 20px 16px !important;
+    border-radius: 14px !important;
+  }
+
+  .panel-title,
+  .form-title {
+    font-size: 1.25rem !important;
+  }
+
+  .channel-item {
+    padding: 10px 12px !important;
+    gap: 12px !important;
+  }
+
+  .channel-icon {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 0.95rem !important;
+  }
+
+  .channel-value {
+    font-size: 0.88rem !important;
+  }
+
+  .contact-social-row {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+
+  .social-btn {
+    flex: 1 1 auto !important;
+    min-width: 90px !important;
+    padding: 9px 12px !important;
+    font-size: 0.82rem !important;
+  }
+
+  .submit-btn {
+    padding: 12px 18px !important;
+    font-size: 0.94rem !important;
+  }
+}
+
+/* --- Footer & Top Button Responsiveness --- */
+@media (max-width: 600px) {
+  .modern-footer {
+    padding: 36px 4% 28px !important;
+  }
+
+  .footer-logo {
+    font-size: 1.15rem !important;
+  }
+
+  .footer-role {
+    font-size: 0.82rem !important;
+  }
+
+  .footer-social-btn {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 1rem !important;
+  }
+
+  .copyright-text {
+    font-size: 0.82rem !important;
+  }
+
+  .footer-tagline {
+    font-size: 0.76rem !important;
+  }
+
+  #topButton {
+    right: 14px !important;
+    bottom: 16px !important;
+    width: 38px !important;
+    height: 38px !important;
+    font-size: 14px !important;
+  }
+}

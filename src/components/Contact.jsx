@@ -5,7 +5,7 @@ export default function Contact() {
   return (
     <section className="section" id="contact" style={{ background: "var(--bg-secondary)" }}>
       <div className="section-container global-container">
-        <div style={{ maxWidth: "800px", margin: "0 auto", textAlign: "center" }}>
+        <div style={{ maxWidth: "860px", margin: "0 auto", textAlign: "center" }}>
           {/* Section Heading */}
           <h2 className="contact-heading">
             Let's Talk<br />
@@ -13,11 +13,20 @@ export default function Contact() {
           </h2>
           <p className="contact-text" style={{ margin: "0 auto 3rem" }}>
             I am based in {PROFILE.location}, and am currently open to exploring
-            full-stack and AI engineering roles. Let's connect!
+            full-stack, frontend, and AI engineering roles. Let's connect!
           </p>
 
           {/* Contact Cards Grid */}
-          <div className="contact-links">
+          <div className="contact-links" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.25rem" }}>
+            {/* Email */}
+            <a href={`mailto:${PROFILE.email}`} className="contact-link-item">
+              <div className="contact-link-icon">📧</div>
+              <div style={{ textAlign: "left" }}>
+                <div className="contact-link-label">Email</div>
+                <div className="contact-link-value">{PROFILE.email}</div>
+              </div>
+            </a>
+
             {/* LinkedIn */}
             <a
               href={PROFILE.linkedin}
@@ -34,15 +43,6 @@ export default function Contact() {
               </div>
             </a>
 
-            {/* Email */}
-            <a href={`mailto:${PROFILE.email}`} className="contact-link-item">
-              <div className="contact-link-icon">📧</div>
-              <div style={{ textAlign: "left" }}>
-                <div className="contact-link-label">Email</div>
-                <div className="contact-link-value">{PROFILE.email}</div>
-              </div>
-            </a>
-
             {/* GitHub */}
             <a
               href={PROFILE.github}
@@ -56,6 +56,17 @@ export default function Contact() {
                 <div className="contact-link-value">github.com/aryasakshi13</div>
               </div>
             </a>
+
+            {/* Phone */}
+            {PROFILE.phone && (
+              <a href={`tel:${PROFILE.phone}`} className="contact-link-item">
+                <div className="contact-link-icon">📞</div>
+                <div style={{ textAlign: "left" }}>
+                  <div className="contact-link-label">Phone &amp; WhatsApp</div>
+                  <div className="contact-link-value">{PROFILE.phone}</div>
+                </div>
+              </a>
+            )}
 
             {/* Resume */}
             <a

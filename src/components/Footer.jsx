@@ -7,8 +7,7 @@ export default function Footer() {
       <div className="global-container">
         <div className="footer-content">
           <span className="footer-text">
-            © {new Date().getFullYear()} Sakshi Arya. Full Stack Developer Delhi.
-            Built with Fluent-Inspired Aesthetics.
+            © {new Date().getFullYear()} Sakshi Arya. Built with React &amp; Tailwind CSS.
           </span>
           <div className="footer-links">
             <a href={PROFILE.resume} download="Sakshi_Arya_Resume.pdf">

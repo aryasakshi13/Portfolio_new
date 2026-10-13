@@ -1,95 +1,105 @@
 // src/data/portfolioData.js
-// All portfolio content lives here. Items marked TODO need your real details.
+// All portfolio content lives here.
 
 export const PROFILE = {
   name: "Sakshi Arya",
   role: "Full Stack Developer",
   company: "Namami Infotech",
   location: "Delhi, India",
+  phone: "+91 7319652323",
 
   heroLine1: "Building Full-Stack Products &",
   heroLine2: "Retrieval-Powered AI",
   heroSubtitle:
-    "Full Stack Developer based in Delhi. I build clean React interfaces, reliable Node.js backends, and AI search systems that find the right answer instead of just a plausible one.",
+    "Full Stack Developer based in Delhi. I build clean React interfaces, reliable Node.js backends, and AI search systems with hybrid retrieval, LangChain, and LangGraph.",
   tagline: "React and Node.js on the surface, hybrid retrieval and RAG underneath.",
 
-  email: "aryasakshi13@gmail.com",
+  email: "sakshiarya884@gmail.com",
   github: "https://github.com/aryasakshi13",
   linkedin: "https://linkedin.com/in/aryasakshi13",
-  resume: "/Sakshi_Arya_Resume.pdf", // put the PDF inside /public
+  resume: "/Sakshi_Arya_Resume.pdf", // saved in /public
 };
 
 export const HIGHLIGHTS = [
   { value: "2025", label: "B.Tech in CSE, DCRUST" },
-  { value: "3 roles", label: "Backend, frontend and full stack since Feb 2025" },
-  { value: "Live", label: "Hybrid RAG app deployed on Vercel" },
+  { value: "1+ yr", label: "Full-time & internship experience since Feb 2025" },
+  { value: "Live", label: "Production RAG app deployed on Vercel" },
 ];
 
 export const SERVICES = [
   {
     title: "Frontend with React",
-    text: "Responsive, accessible interfaces built with React, Redux and TypeScript, with attention to how they feel as well as how they look.",
+    text: "Responsive, accessible interfaces built with React, Redux Toolkit and TypeScript, with input debouncing and performance optimization.",
   },
   {
     title: "Backend and APIs",
-    text: "REST APIs and services in Node.js and Express, backed by MongoDB or SQL, designed to be simple to consume and easy to maintain.",
+    text: "REST APIs and services in Node.js and Express, backed by MongoDB or SQL, with JWT authentication, custom middleware, and rate limiting.",
   },
   {
-    title: "AI search and RAG",
-    text: "Retrieval pipelines that combine keyword and vector search, then rerank the results, so AI answers are grounded in the right source text.",
+    title: "AI Search, LangChain & RAG",
+    text: "Retrieval pipelines using LangChain, LangGraph, Qdrant vector search, and BM25 lexical matching with Reciprocal Rank Fusion and Cohere reranking.",
   },
 ];
 
 // Short, specific, first person. No buzzwords.
 export const ABOUT = [
   "I'm Sakshi, a full stack developer from Delhi. I finished my B.Tech in Computer Science at DCRUST in 2025, and I've been building software professionally since February that year.",
-  "I started on the backend with Node.js and Express at Rifcare Tech, learned to care about interfaces as a React intern at Webmaska, and now work across the whole product at Namami Infotech.",
-  "Lately I'm most interested in making AI features reliable. In my Bhagavad Gita RAG app I focused on the part most demos skip: retrieval. Hybrid search, rank fusion and reranking decide whether the model ever sees the right passage, so that's where I put the effort.",
+  "I started on the backend as a Software Developer Intern at Rifcare Tech building Node.js & Express APIs, learned to build production React interfaces as a React Intern at Webmaska, and now develop full-stack features across the stack at Namami Infotech.",
+  "Lately I'm most interested in making AI features reliable using LangChain, LangGraph, and hybrid RAG. In my Bhagavad Gita RAG app I focused on the part most demos skip: retrieval quality. Hybrid search, rank fusion, and reranking decide whether the model ever sees the right passage, so that's where I put the effort.",
 ];
 
 export const SKILLS = [
-  { group: "Frontend", items: ["React", "Redux", "TypeScript", "JavaScript", "HTML & CSS", "Tailwind CSS"] },
-  { group: "Backend", items: ["Node.js", "Express", "Java", "REST APIs"] },
-  { group: "Databases", items: ["MongoDB", "SQL", "Qdrant (vector DB)"] },
+  { group: "Languages", items: ["JavaScript (ES6+)", "TypeScript", "Java", "SQL"] },
+  { group: "Frontend", items: ["React.js", "Redux Toolkit", "Tailwind CSS", "HTML5 & CSS3"] },
+  { group: "Backend", items: ["Node.js", "Express.js", "REST APIs", "JWT Authentication"] },
   {
     group: "AI and Retrieval",
-    items: ["RAG pipelines", "Hybrid search", "BM25", "Reciprocal Rank Fusion", "Cohere reranking", "Embeddings (Jina, Gemini)"],
+    items: [
+      "RAG pipelines",
+      "LangChain",
+      "LangGraph",
+      "Hybrid search",
+      "Qdrant",
+      "BM25",
+      "Reciprocal Rank Fusion",
+      "Cohere reranking",
+      "Embeddings (Jina, Gemini)",
+    ],
   },
+  { group: "Databases & Tools", items: ["MongoDB", "SQL", "Git", "GitHub", "Vercel"] },
 ];
 
-// TODO: replace the bullets with the exact lines from your resume
 export const EXPERIENCE = [
   {
     period: "Jun 2026 to Present",
     role: "Full Stack Developer",
     company: "Namami Infotech Pvt. Ltd.",
     points: [
-      "Build and ship features end to end, from React interfaces to Node.js services and databases.",
-      "Design APIs and data models and connect them cleanly to the front end.",
-      "Work with the team from requirements through to release.",
+      "Develop and maintain full-stack features using React, Node.js/Express and MongoDB, from UI to REST API and database.",
+      "Build and integrate REST APIs with authentication and validation, and collaborate with the team on code reviews and releases.",
+      "Optimize frontend performance and fix production bugs to keep the application stable and responsive.",
     ],
-    tags: ["React", "Node.js", "TypeScript"],
+    tags: ["React", "Node.js", "Express", "MongoDB"],
   },
   {
     period: "Jul 2025 to Jan 2026",
     role: "React Intern",
     company: "Webmaska",
     points: [
-      "Built responsive, reusable React components and pages.",
-      "Connected the interface to backend APIs and handled loading and error states.",
-      "Learned production workflows: code reviews, version control and shipping on a team.",
+      "Built production-ready React components from design specs, fully responsive from 320px to 1440px.",
+      "Used React memoization hooks to remove unnecessary re-renders, improving page load speed by 30%.",
     ],
-    tags: ["React", "JavaScript"],
+    tags: ["React", "JavaScript", "Responsive Design"],
   },
   {
     period: "Feb 2025 to Jul 2025",
-    role: "Software Developer",
+    role: "Software Developer Intern",
     company: "Rifcare Tech Pvt. Ltd.",
     points: [
-      "Developed backend endpoints and services with Node.js and Express.",
-      "Worked with databases and supported API integration with the front end.",
+      "Developed scalable Node.js/Express REST API modules for internal product features.",
+      "Wrote middleware for authentication, request validation and endpoint rate limiting; reviewed team code to keep production stable.",
     ],
-    tags: ["Node.js", "Express"],
+    tags: ["Node.js", "Express", "REST APIs", "Middleware"],
   },
 ];
 
@@ -102,12 +112,6 @@ export const PIPELINE = [
   { step: "Answer", text: "The best passages ground the final answer shown back in the app." },
 ];
 
-/*
-  Project media:
-  - image:  screenshot saved in /public/projects/ (falls back to a styled placeholder if missing)
-  - video:  Cloudinary embed URL, plays inline when the visitor clicks the thumbnail
-  - poster: thumbnail for the video (Cloudinary generates a frame from the video)
-*/
 export const PROJECTS = [
   {
     name: "Bhagavad Gita RAG AI",
@@ -117,7 +121,7 @@ export const PROJECTS = [
     problem:
       "Keyword search misses meaning, vector search misses exact terms, and an AI model that sees the wrong passages gives confident but wrong answers.",
     built:
-      "A React app and a Node.js and TypeScript API that run every question through a hybrid retrieval pipeline before an answer is written. The app is live on Vercel.",
+      "An advanced Retrieval-Augmented Generation app with a Node.js/TypeScript API and React frontend to answer questions grounded in the Bhagavad Gita.",
     decisions: [
       {
         title: "Hybrid search",
@@ -133,39 +137,57 @@ export const PROJECTS = [
       },
       {
         title: "Two embedding models",
-        text: "Jina and Google Gemini embeddings are used at different stages of the pipeline.",
+        text: "Evaluated Jina and Google Gemini embeddings at different stages of the pipeline to improve retrieval quality.",
       },
     ],
-    tags: ["React", "Node.js", "TypeScript", "Qdrant", "BM25", "Cohere", "Gemini"],
+    tags: ["React", "Node.js", "TypeScript", "Qdrant", "BM25", "Cohere", "Gemini", "Jina"],
     image: "/projects/gita-rag.png",
     live: "https://rag-practice-umber.vercel.app/",
-    code: "https://github.com/aryasakshi13",
+    code: "https://github.com/aryasakshi13/Rag_practice",
   },
   {
     name: "Tailwind Config Extractor",
     featured: false,
-    summary: "A Chrome extension that reveals the Tailwind setup behind a website.",
+    summary: "A Chrome extension and web app that reveals the Tailwind setup behind a website.",
     problem:
       "Finding out which colours, spacing and fonts a Tailwind site uses means digging through DevTools one class at a time.",
     built:
-      "A Chrome extension that reads a page and extracts its Tailwind configuration, so the design tokens can be copied straight into your own project.",
-    decisions: [],
-    tags: ["JavaScript", "Chrome extension", "Tailwind CSS"],
+      "Built a browser extension and web app that inspects a live page and generates a custom tailwind.config.js from its CSS. Created backend APIs to extract design tokens into reusable JSON schemas with JWT cross-origin auth and MongoDB history storage.",
+    decisions: [
+      {
+        title: "AST CSS Extraction",
+        text: "Parses computed styles into structured design tokens (colors, fonts, font sizes, spacing) formatted for tailwind.config.js.",
+      },
+      {
+        title: "History Storage",
+        text: "Implemented JWT cross-origin authentication and MongoDB storage so users can save and revisit extraction history.",
+      },
+    ],
+    tags: ["Node.js", "Express", "MongoDB", "Chrome Extension", "Tailwind CSS"],
     video: "https://player.cloudinary.com/embed/?cloud_name=de69seszp&public_id=Tailwind_upload",
     poster: "https://res.cloudinary.com/de69seszp/video/upload/so_3,w_1200/Tailwind_upload.jpg",
-    code: "https://github.com/aryasakshi13",
+    code: "https://github.com/aryasakshi13/Tailwind_Config_Extracter",
   },
   {
     name: "Front Arena",
     draft: false,
     featured: false,
-    summary: "A browser-based coding playground with live preview.",
+    summary: "A browser-based coding playground to write and run HTML, CSS and JS in real time.",
     problem:
       "Testing frontend ideas often requires full local project scaffolding and dependency setups that slow down prototyping.",
     built:
-      "A React playground with Monaco Editor and real-time execution in a sandboxed iframe, supporting multi-tab file editing.",
-    decisions: [],
-    tags: ["React", "TypeScript", "Monaco Editor", "Tailwind CSS"],
+      "A browser-based playground to write and run HTML, CSS and JS in real time inside an isolated sandbox. Integrated Monaco Editor with input debouncing, reducing event-loop latency by 40% during fast typing, and designed a multi-file workspace with dynamic file-tree state management.",
+    decisions: [
+      {
+        title: "Monaco Editor Integration",
+        text: "Integrated Monaco Editor with debounced input, reducing event-loop latency by 40% during fast typing.",
+      },
+      {
+        title: "Multi-File Workspace",
+        text: "Designed a multi-file workspace with dynamic file-tree state management, similar to a real IDE.",
+      },
+    ],
+    tags: ["React", "TypeScript", "Redux Toolkit", "Tailwind CSS", "Monaco Editor"],
     image: "/projects/front-arena.png",
     live: "https://front-arena.vercel.app/",
     code: "https://github.com/aryasakshi13/FrontArena",
@@ -178,8 +200,8 @@ export const EDUCATION = [
 ];
 
 export const NAV_LINKS = [
-  { id: "about", label: "About" },
-  { id: "experience", label: "Experience" },
   { id: "work", label: "Work" },
+  { id: "about", label: "About" },
+  { id: "skills", label: "Expertise" },
   { id: "contact", label: "Contact" },
 ];

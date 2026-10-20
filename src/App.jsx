@@ -1,44 +1,86 @@
-import React from "react";
-import Navbar from "./components/Navbar";
+import React, { useState } from "react";
+import Header from "./components/Header";
 import Hero from "./components/Hero";
-import StatsMarquee from "./components/StatsMarquee";
-import Projects from "./components/Projects";
-import About from "./components/About";
-import Skills from "./components/Skills";
-import Contact from "./components/Contact";
+import IntroSection from "./components/IntroSection";
+import ProjectsSection from "./components/ProjectsSection";
+import NewsletterSection from "./components/NewsletterSection";
+import AboutSection from "./components/AboutSection";
 import Footer from "./components/Footer";
+import ProjectModal from "./components/ProjectModal";
+import PrivacyModal from "./components/PrivacyModal";
+import AllProjectsPage from "./components/AllProjectsPage";
 
 export default function App() {
+  const [activeView, setActiveView] = useState("intro"); // "intro" | "projects"
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [privacyOpen, setPrivacyOpen] = useState(false);
+
+  const goToProjects = () => {
+    setActiveView("projects");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const goToIntro = () => {
+    setActiveView("intro");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const scrollToNewsletter = () => {
+    const el = document.getElementById("newsletter");
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <>
-      {/* Noise Texture Overlay */}
-      <div className="noise-overlay" />
+    <div className="site-shell">
+      {/* Site Header with Floating Pill Navigation */}
+      <Header
+        activeView={activeView}
+        onGoToProjects={goToProjects}
+        onGoToIntro={goToIntro}
+      />
 
-      {/* Navigation Bar */}
-      <Navbar />
+      <main id="main-content">
+        {activeView === "projects" ? (
+          <AllProjectsPage onBackToIntro={goToIntro} />
+        ) : (
+          <>
+            {/* Hero Section */}
+            <Hero onExploreWork={goToProjects} />
 
-      <main id="top">
-        {/* Hero Section */}
-        <Hero />
+            {/* 01 / The Approach & Philosophy */}
+            <IntroSection />
 
-        {/* Stats Marquee Ribbon */}
-        <StatsMarquee />
+            {/* 03 / Built in the Open & Projects */}
+            <ProjectsSection
+              onSelectProject={(project) => setSelectedProject(project)}
+              onAllProjects={goToProjects}
+            />
 
-        {/* Selected Works / Case Studies */}
-        <Projects />
+            {/* 05 / The Occasional Dispatch & Newsletter (#newsletter) */}
+            <NewsletterSection onOpenPrivacy={() => setPrivacyOpen(true)} />
 
-        {/* About Me & Work Timeline */}
-        <About />
-
-        {/* Skills, Expertise & Education */}
-        <Skills />
-
-        {/* Contact Section */}
-        <Contact />
+            {/* 06 / Foundations, Story & Principles */}
+            <AboutSection onOpenContact={scrollToNewsletter} />
+          </>
+        )}
       </main>
 
-      {/* Footer */}
-      <Footer />
-    </>
+      {/* Site Footer */}
+      <Footer
+        onOpenPrivacy={() => setPrivacyOpen(true)}
+        onOpenContact={scrollToNewsletter}
+      />
+
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
+
+      {privacyOpen && (
+        <PrivacyModal onClose={() => setPrivacyOpen(false)} />
+      )}
+    </div>
   );
 }

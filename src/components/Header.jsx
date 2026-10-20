@@ -9,52 +9,45 @@ import {
   X
 } from "lucide-react";
 
-export default function Header({ activeView, onGoToProjects, onGoToIntro }) {
+export default function Header({ activeView, onGoToProjects, onGoToIntro, onGoToAbout }) {
   const [activeSection, setActiveSection] = useState("intro");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    if (activeView === "projects") {
-      setActiveSection("projects");
+    if (activeView !== "intro") {
+      setActiveSection(activeView);
       return;
     }
     const handleScroll = () => {
-      const sections = ["top", "intro", "projects", "newsletter", "about"];
+      const sections = ["top", "intro", "projects", "newsletter"];
       const scrollPos = window.scrollY + 180;
-
-      for (const sectionId of sections) {
-        const el = document.getElementById(sectionId);
+      for (const id of sections) {
+        const el = document.getElementById(id);
         if (el) {
           const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            setActiveSection(sectionId === "top" ? "intro" : sectionId);
+          const h = el.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + h) {
+            setActiveSection(id === "top" ? "intro" : id);
             break;
           }
         }
       }
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [activeView]);
 
   const scrollTo = (id) => {
     setMobileMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   const handleIntroClick = (e) => {
     e.preventDefault();
     setMobileMenuOpen(false);
-    if (activeView === "projects") {
-      onGoToIntro();
-    } else {
-      scrollTo("top");
-    }
+    if (activeView !== "intro") onGoToIntro();
+    else scrollTo("top");
   };
 
   const handleProjectsClick = (e) => {
@@ -63,28 +56,42 @@ export default function Header({ activeView, onGoToProjects, onGoToIntro }) {
     onGoToProjects();
   };
 
+  const handleAboutClick = (e) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+    onGoToAbout();
+  };
+
+  const handleNewsletterClick = (e) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+    if (activeView !== "intro") {
+      onGoToIntro();
+      setTimeout(() => scrollTo("newsletter"), 350);
+    } else {
+      scrollTo("newsletter");
+    }
+  };
+
+  const isIntroActive   = activeView === "intro"    && (activeSection === "intro" || activeSection === "top");
+  const isProjectActive = activeView === "projects";
+  const isAboutActive   = activeView === "about";
+
   return (
     <>
-      <a href="#main-content" className="skip-link">
-        Skip to content
-      </a>
+      <a href="#main-content" className="skip-link">Skip to content</a>
 
       <header className="site-header">
-        <a
-          href="#top"
-          onClick={handleIntroClick}
-          className="wordmark"
-          aria-label="Home"
-        >
+        <a href="#top" onClick={handleIntroClick} className="wordmark" aria-label="Home">
           sa<span>_</span>
         </a>
 
-        {/* Floating Desktop Pill Navigation */}
+        {/* Desktop Nav */}
         <nav className="desktop-nav" aria-label="Main navigation">
           <a
             href="#top"
             onClick={handleIntroClick}
-            className={`nav-link ${activeView === "intro" && activeSection === "intro" ? "is-active" : ""}`}
+            className={`nav-link ${isIntroActive ? "is-active" : ""}`}
           >
             <Terminal size={13} strokeWidth={1.8} />
             <span>Intro</span>
@@ -93,7 +100,7 @@ export default function Header({ activeView, onGoToProjects, onGoToIntro }) {
           <a
             href="#projects"
             onClick={handleProjectsClick}
-            className={`nav-link ${activeView === "projects" ? "is-active" : ""}`}
+            className={`nav-link ${isProjectActive ? "is-active" : ""}`}
           >
             <GitBranch size={13} strokeWidth={1.8} />
             <span>Projects</span>
@@ -101,16 +108,8 @@ export default function Header({ activeView, onGoToProjects, onGoToIntro }) {
 
           <a
             href="#about"
-            onClick={(e) => {
-              e.preventDefault();
-              if (activeView === "projects") {
-                onGoToIntro();
-                setTimeout(() => scrollTo("about"), 300);
-              } else {
-                scrollTo("about");
-              }
-            }}
-            className={`nav-link ${activeView === "intro" && activeSection === "about" ? "is-active" : ""}`}
+            onClick={handleAboutClick}
+            className={`nav-link ${isAboutActive ? "is-active" : ""}`}
           >
             <UserRound size={13} strokeWidth={1.8} />
             <span>About</span>
@@ -118,15 +117,7 @@ export default function Header({ activeView, onGoToProjects, onGoToIntro }) {
 
           <a
             href="#newsletter"
-            onClick={(e) => {
-              e.preventDefault();
-              if (activeView === "projects") {
-                onGoToIntro();
-                setTimeout(() => scrollTo("newsletter"), 300);
-              } else {
-                scrollTo("newsletter");
-              }
-            }}
+            onClick={handleNewsletterClick}
             className="nav-newsletter"
           >
             <Mail size={13} strokeWidth={1.8} />
@@ -134,26 +125,14 @@ export default function Header({ activeView, onGoToProjects, onGoToIntro }) {
           </a>
         </nav>
 
-        {/* Status Callout Badge */}
-        <a
-          href="#newsletter"
-          onClick={(e) => {
-            e.preventDefault();
-            if (activeView === "projects") {
-              onGoToIntro();
-              setTimeout(() => scrollTo("newsletter"), 300);
-            } else {
-              scrollTo("newsletter");
-            }
-          }}
-          className="header-status"
-        >
+        {/* Status Badge */}
+        <a href="#newsletter" onClick={handleNewsletterClick} className="header-status">
           <span className="status-dot" />
           <span>Open to roles</span>
           <ArrowUpRight size={12} strokeWidth={2} />
         </a>
 
-        {/* Mobile Hamburger Toggle */}
+        {/* Mobile Toggle */}
         <button
           className="mobile-menu-toggle"
           aria-label="Toggle navigation menu"
@@ -164,46 +143,22 @@ export default function Header({ activeView, onGoToProjects, onGoToIntro }) {
         </button>
       </header>
 
-      {/* Mobile Nav Drawer */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <nav className="mobile-nav-menu" aria-label="Mobile navigation">
-          <a href="#top" onClick={handleIntroClick} className={activeView === "intro" ? "is-active" : ""}>
+          <a href="#top" onClick={handleIntroClick} className={isIntroActive ? "is-active" : ""}>
             <Terminal size={14} />
             <span>Intro</span>
           </a>
-          <a href="#projects" onClick={handleProjectsClick} className={activeView === "projects" ? "is-active" : ""}>
+          <a href="#projects" onClick={handleProjectsClick} className={isProjectActive ? "is-active" : ""}>
             <GitBranch size={14} />
             <span>Projects</span>
           </a>
-          <a
-            href="#about"
-            onClick={(e) => {
-              e.preventDefault();
-              setMobileMenuOpen(false);
-              if (activeView === "projects") {
-                onGoToIntro();
-                setTimeout(() => scrollTo("about"), 300);
-              } else {
-                scrollTo("about");
-              }
-            }}
-          >
+          <a href="#about" onClick={handleAboutClick} className={isAboutActive ? "is-active" : ""}>
             <UserRound size={14} />
             <span>About</span>
           </a>
-          <a
-            href="#newsletter"
-            onClick={(e) => {
-              e.preventDefault();
-              setMobileMenuOpen(false);
-              if (activeView === "projects") {
-                onGoToIntro();
-                setTimeout(() => scrollTo("newsletter"), 300);
-              } else {
-                scrollTo("newsletter");
-              }
-            }}
-          >
+          <a href="#newsletter" onClick={handleNewsletterClick}>
             <Mail size={14} />
             <span>Newsletter</span>
           </a>

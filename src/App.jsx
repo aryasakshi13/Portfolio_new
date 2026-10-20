@@ -4,26 +4,25 @@ import Hero from "./components/Hero";
 import IntroSection from "./components/IntroSection";
 import ProjectsSection from "./components/ProjectsSection";
 import NewsletterSection from "./components/NewsletterSection";
-import AboutSection from "./components/AboutSection";
 import Footer from "./components/Footer";
 import ProjectModal from "./components/ProjectModal";
 import PrivacyModal from "./components/PrivacyModal";
 import AllProjectsPage from "./components/AllProjectsPage";
+import AboutPage from "./components/AboutPage";
 
 export default function App() {
-  const [activeView, setActiveView] = useState("intro"); // "intro" | "projects"
+  const [activeView, setActiveView] = useState("intro"); // "intro" | "projects" | "about"
   const [selectedProject, setSelectedProject] = useState(null);
   const [privacyOpen, setPrivacyOpen] = useState(false);
 
-  const goToProjects = () => {
-    setActiveView("projects");
+  const goTo = (view) => {
+    setActiveView(view);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const goToIntro = () => {
-    setActiveView("intro");
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const goToProjects = () => goTo("projects");
+  const goToIntro    = () => goTo("intro");
+  const goToAbout    = () => goTo("about");
 
   const scrollToNewsletter = () => {
     const el = document.getElementById("newsletter");
@@ -32,44 +31,50 @@ export default function App() {
 
   return (
     <div className="site-shell">
-      {/* Site Header with Floating Pill Navigation */}
       <Header
         activeView={activeView}
         onGoToProjects={goToProjects}
         onGoToIntro={goToIntro}
+        onGoToAbout={goToAbout}
       />
 
       <main id="main-content">
         {activeView === "projects" ? (
           <AllProjectsPage onBackToIntro={goToIntro} />
+
+        ) : activeView === "about" ? (
+          <AboutPage
+            onBackToIntro={goToIntro}
+            onOpenPrivacy={() => setPrivacyOpen(true)}
+          />
+
         ) : (
           <>
-            {/* Hero Section */}
+            {/* Hero */}
             <Hero onExploreWork={goToProjects} />
 
-            {/* 01 / The Approach & Philosophy */}
-            <IntroSection />
+            {/* 01 / Approach */}
+            <IntroSection onGoToAbout={goToAbout} />
 
-            {/* 03 / Built in the Open & Projects */}
+            {/* 03 / Projects */}
             <ProjectsSection
-              onSelectProject={(project) => setSelectedProject(project)}
+              onSelectProject={(p) => setSelectedProject(p)}
               onAllProjects={goToProjects}
             />
 
-            {/* 05 / The Occasional Dispatch & Newsletter (#newsletter) */}
+            {/* Newsletter */}
             <NewsletterSection onOpenPrivacy={() => setPrivacyOpen(true)} />
-
-            {/* 06 / Foundations, Story & Principles */}
-            <AboutSection onOpenContact={scrollToNewsletter} />
           </>
         )}
       </main>
 
-      {/* Site Footer */}
-      <Footer
-        onOpenPrivacy={() => setPrivacyOpen(true)}
-        onOpenContact={scrollToNewsletter}
-      />
+      {/* Footer only on intro view */}
+      {activeView === "intro" && (
+        <Footer
+          onOpenPrivacy={() => setPrivacyOpen(true)}
+          onOpenContact={scrollToNewsletter}
+        />
+      )}
 
       {selectedProject && (
         <ProjectModal

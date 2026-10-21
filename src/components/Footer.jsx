@@ -1,10 +1,27 @@
 import React from "react";
 import { ArrowUpRight, ArrowUp } from "lucide-react";
 
-export default function Footer({ onOpenPrivacy, onOpenContact }) {
+export default function Footer({ onGoToAbout, onGoToIntro, onOpenPrivacy, onOpenContact }) {
   const scrollTo = (id) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleTopClick = (e) => {
+    e.preventDefault();
+    if (onGoToIntro) {
+      onGoToIntro();
+    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleAboutClick = (e) => {
+    e.preventDefault();
+    if (onGoToAbout) {
+      onGoToAbout();
+    } else {
+      scrollTo("about");
+    }
   };
 
   return (
@@ -13,10 +30,7 @@ export default function Footer({ onOpenPrivacy, onOpenContact }) {
         <a
           className="wordmark"
           href="#top"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollTo("top");
-          }}
+          onClick={handleTopClick}
         >
           sa<span>_</span>
         </a>
@@ -36,10 +50,7 @@ export default function Footer({ onOpenPrivacy, onOpenContact }) {
         <div>
           <a
             href="#about"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollTo("about");
-            }}
+            onClick={handleAboutClick}
           >
             About
           </a>

@@ -32,24 +32,18 @@ export default function AboutSection({ onOpenContact }) {
   return (
     <section className="about-section section-rail" id="about">
       <div className="about-story">
-        <div className="about-portrait">
-          <div className="about-portrait-card">
-            <span className="about-portrait-corner mono">ENGINEER / BUILDER</span>
-
-            <div className="about-portrait-center">
-              <div className="about-avatar-symbol">
-                <Code2 size={42} strokeWidth={1.5} />
-              </div>
-              <h3>Sakshi Arya</h3>
-              <p className="mono">Frontend &amp; Full-Stack Systems</p>
-            </div>
-
-            <figcaption className="mono">
-              <span>New Delhi, India</span>
-              <span style={{ color: "var(--terminal)" }}>• Available for roles</span>
-            </figcaption>
-          </div>
-        </div>
+        <figure className="about-portrait">
+          <img
+            src="/portrait.jpg"
+            width="864"
+            height="1152"
+            alt="Sakshi in a quiet workspace beside a window"
+          />
+          <figcaption className="mono">
+            <span>Sakshi Arya</span>
+            <span>Usually building something.</span>
+          </figcaption>
+        </figure>
 
         <div className="about-copy">
           <p className="eyebrow">05 / Story &amp; Foundations</p>

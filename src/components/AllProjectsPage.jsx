@@ -77,7 +77,7 @@ export default function AllProjectsPage({ onBackToIntro }) {
 
       {/* Page Title */}
       <div className="projects-page-hero section-rail">
-        <h1 className="page-heading">
+        <h1 className="projects-page-heading">
           The workbench.<br />
           <span className="page-heading-muted">Always in progress.</span>
         </h1>

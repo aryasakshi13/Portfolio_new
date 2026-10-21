@@ -1,7 +1,7 @@
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
 
-export default function IntroSection() {
+export default function IntroSection({ onGoToAbout }) {
   const scrollTo = (id) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -52,7 +52,8 @@ export default function IntroSection() {
             href="#about"
             onClick={(e) => {
               e.preventDefault();
-              scrollTo("about");
+              if (onGoToAbout) onGoToAbout();
+              else scrollTo("about");
             }}
           >
             A little more about me

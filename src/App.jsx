@@ -68,13 +68,13 @@ export default function App() {
         )}
       </main>
 
-      {/* Footer only on intro view */}
-      {activeView === "intro" && (
-        <Footer
-          onOpenPrivacy={() => setPrivacyOpen(true)}
-          onOpenContact={scrollToNewsletter}
-        />
-      )}
+      {/* Footer across all views (matches reference site layout) */}
+      <Footer
+        onGoToAbout={goToAbout}
+        onGoToIntro={goToIntro}
+        onOpenPrivacy={() => setPrivacyOpen(true)}
+        onOpenContact={scrollToNewsletter}
+      />
 
       {selectedProject && (
         <ProjectModal

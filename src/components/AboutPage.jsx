@@ -35,8 +35,8 @@ export default function AboutPage({ onBackToIntro, onOpenPrivacy }) {
     <div className="about-page" id="about-page">
 
       {/* ── Page Heading Rail ── */}
-      <section className="about-page-rail section-rail">
-        <div className="about-page-rail-top">
+      <section className="page-heading section-rail">
+        <div className="page-heading-top">
           <p className="eyebrow">04 / A little about me</p>
           <button
             type="button"
@@ -48,24 +48,26 @@ export default function AboutPage({ onBackToIntro, onOpenPrivacy }) {
           </button>
         </div>
 
-        <h1 className="page-heading">
-          Developer by trade.<br />
-          <span className="page-heading-muted">Learner by default.</span>
+        <h1>
+          Engineer by trade.<br />
+          <span className="muted">Curious by default.</span>
         </h1>
 
         <p className="page-description">
-          Behind every commit is a person. Here's what I care about, why I
-          build, and what keeps me learning.
+          Behind every commit is a person. Here’s a little about what I care
+          about, why I build, and what keeps me asking questions.
         </p>
       </section>
 
       {/* ── Story + Portrait ── */}
       <section className="about-story section-rail">
-        {/* Portrait placeholder card */}
         <figure className="about-portrait">
-          <div className="about-portrait-placeholder">
-            <span className="about-portrait-initials mono">SA</span>
-          </div>
+          <img
+            src="/portrait.jpg"
+            width="864"
+            height="1152"
+            alt="Sakshi in a quiet workspace beside a window"
+          />
           <figcaption className="mono">
             <span>Sakshi Arya</span>
             <span>Usually building something.</span>
@@ -110,7 +112,7 @@ export default function AboutPage({ onBackToIntro, onOpenPrivacy }) {
       </section>
 
       {/* ── Working Principles ── */}
-      <section className="about-principles section-rail">
+      <section className="working-principles section-rail">
         <p className="eyebrow">A few things I come back to</p>
         <h2>
           How I like to work<span className="violet">.</span>
@@ -120,7 +122,7 @@ export default function AboutPage({ onBackToIntro, onOpenPrivacy }) {
           {principles.map(({ num, Icon, title, desc }) => (
             <div key={num} className="principle-row">
               <span className="mono">{num}</span>
-              <Icon size={24} strokeWidth={1.4} />
+              <Icon size={25} strokeWidth={1.2} />
               <h3>{title}</h3>
               <p>{desc}</p>
             </div>
@@ -131,6 +133,9 @@ export default function AboutPage({ onBackToIntro, onOpenPrivacy }) {
       {/* ── Quick Facts ── */}
       <section className="about-facts section-rail">
         <p className="eyebrow">Quick facts</p>
+        <h2>
+          At a glance<span className="violet">.</span>
+        </h2>
         <div className="facts-grid">
           {facts.map(({ label, value }) => (
             <div key={label} className="fact-row mono">

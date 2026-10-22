@@ -14,7 +14,7 @@ const allProjects = [
     filterTags: ["AI", "TypeScript"],
     liveLabel: "Live demo",
     liveUrl: "https://rag-practice-umber.vercel.app/",
-    githubUrl: "https://github.com/aryasakshi13",
+    githubUrl: "https://github.com/aryasakshi13/Rag_practice",
     quickLook: "query → BM25 + vector search → RRF merge → Cohere rerank → answer",
   },
   {
@@ -30,7 +30,7 @@ const allProjects = [
     liveLabel: "Watch demo",
     liveUrl:
       "https://player.cloudinary.com/embed/?cloud_name=de69seszp&public_id=Tailwind_upload",
-    githubUrl: "https://github.com/aryasakshi13",
+    githubUrl: "https://github.com/aryasakshi13/Tailwind_Config_Extracter",
     quickLook: "open any site → click extension → copy tailwind.config.js",
   },
   {

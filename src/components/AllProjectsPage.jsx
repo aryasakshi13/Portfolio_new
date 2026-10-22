@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
 
 const allProjects = [
@@ -50,16 +50,7 @@ const allProjects = [
   },
 ];
 
-const FILTERS = ["All", "AI", "TypeScript", "JavaScript", "React"];
-
 export default function AllProjectsPage({ onBackToIntro }) {
-  const [activeFilter, setActiveFilter] = useState("All");
-
-  const visible =
-    activeFilter === "All"
-      ? allProjects
-      : allProjects.filter((p) => p.filterTags.includes(activeFilter));
-
   return (
     <div className="all-projects-page" id="all-projects">
       {/* Page Rail Header */}
@@ -87,28 +78,16 @@ export default function AllProjectsPage({ onBackToIntro }) {
         </p>
       </div>
 
-      {/* Filters + Count */}
+      {/* Count */}
       <div className="projects-filter-bar section-rail">
-        <div className="filter-tags">
-          {FILTERS.map((f) => (
-            <button
-              key={f}
-              type="button"
-              className={`filter-tag ${activeFilter === f ? "filter-tag--active" : ""}`}
-              onClick={() => setActiveFilter(f)}
-            >
-              {f}
-            </button>
-          ))}
-        </div>
         <span className="mono projects-count">
-          {visible.length} project{visible.length !== 1 ? "s" : ""} / Built to learn
+          {allProjects.length} projects / Built to learn
         </span>
       </div>
 
       {/* Project List */}
       <div className="project-features section-rail">
-        {visible.map((project) => (
+        {allProjects.map((project) => (
           <article key={project.id} className="project-feature">
             {/* Feature Header */}
             <div className="project-feature-header">

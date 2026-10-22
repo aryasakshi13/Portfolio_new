@@ -43,9 +43,11 @@ export const SERVICES = [
 
 // Short, specific, first person. No buzzwords.
 export const ABOUT = [
-  "I'm Sakshi, a full stack developer from Delhi. I finished my B.Tech in Computer Science at DCRUST in 2025, and I've been building software professionally since February that year.",
-  "I started on the backend as a Software Developer Intern at Rifcare Tech building Node.js & Express APIs, learned to build production React interfaces as a React Intern at Webmaska, and now develop full-stack features across the stack at Namami Infotech.",
-  "Lately I'm most interested in making AI features reliable using LangChain, LangGraph, and hybrid RAG. In my Bhagavad Gita RAG app I focused on the part most demos skip: retrieval quality. Hybrid search, rank fusion, and reranking decide whether the model ever sees the right passage, so that's where I put the effort.",
+  "Hi, I’m Sakshi.",
+  "I build full stack products and care about the details that make them feel finished.",
+  "My core stack is React, TypeScript, Node.js and MongoDB. I like owning a feature end to end, from the database and API to the screen someone actually uses. Today I do that as a Full Stack Developer at Namami Infotech.",
+  "My curiosity right now is AI. I built a RAG app that answers questions from a real text, and I’m learning LangChain, LangGraph and agentic AI so I can build products that reason over data instead of just displaying it.",
+  "This site is where I build in public, with projects that taught me something and ideas that made it out of my notebook.",
 ];
 
 export const SKILLS = [

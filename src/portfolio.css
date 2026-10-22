@@ -2264,6 +2264,66 @@ h2 {
   align-self: flex-start;
 }
 
+.about-strengths {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 22px 24px;
+  margin: 10px 0 24px;
+}
+
+.strengths-title {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--quiet);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+
+.strengths-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.strength-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+@media (min-width: 640px) {
+  .strength-item {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 12px;
+  }
+}
+
+.strength-tag {
+  font-size: 11px;
+  color: var(--terminal);
+  min-width: 86px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.strength-desc {
+  font-size: 13px;
+  color: var(--white);
+  line-height: 1.6;
+}
+
+.about-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
 /* ═══════════════════════════════════════════════════════════════
    WORKING PRINCIPLES
    ═══════════════════════════════════════════════════════════════ */

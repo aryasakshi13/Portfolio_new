@@ -1,34 +1,7 @@
 import React from "react";
-import { Terminal, ScanLine, FileText, GitBranch, ArrowUpRight, Code2 } from "lucide-react";
+import { FileText, ArrowUpRight } from "lucide-react";
 
 export default function AboutSection({ onOpenContact }) {
-  const principles = [
-    {
-      num: "01",
-      icon: Terminal,
-      title: "Simplicity first.",
-      desc: "Resist unnecessary complexity. Most systems do not need a distributed microservice cluster on day one. Boring architectures let you sleep at night."
-    },
-    {
-      num: "02",
-      icon: ScanLine,
-      title: "Measure before optimizing.",
-      desc: "Profile the query plans, event loop latency, and memory footprints before introducing complex caching tiers or exotic runtimes."
-    },
-    {
-      num: "03",
-      icon: FileText,
-      title: "Documentation is a feature.",
-      desc: "If a peer engineer cannot clone, boot, and understand the failure modes within 10 minutes, the developer ergonomics require redesign."
-    },
-    {
-      num: "04",
-      icon: GitBranch,
-      title: "Build in the open.",
-      desc: "Writing articles, publishing open-source tooling, and explaining technical trade-offs tests real understanding and elevates the community."
-    }
-  ];
-
   return (
     <section className="about-section section-rail" id="about">
       <div className="about-story">
@@ -46,57 +19,65 @@ export default function AboutSection({ onOpenContact }) {
         </figure>
 
         <div className="about-copy">
-          <p className="eyebrow">05 / Story &amp; Foundations</p>
+          <p className="eyebrow">The human behind the commits</p>
           <h2>
-            Building behind &amp;
-            <br />
-            inside the screen<span className="violet">.</span>
+            Hi, I&apos;m Sakshi<span className="violet">.</span>
           </h2>
           <p className="about-lede">
-            I believe that the cleanest software systems happen when frontend ergonomics and
-            backend reliability are treated with equal rigor.
+            I build full stack products and care about the details that make them feel finished.
           </p>
           <p>
-            From engineering browser-based developer tooling like Front Arena with Monaco Editor to
-            fusing sparse BM25 and dense vector search in hybrid RAG pipelines, my focus is on
-            writing code that is intuitive to use and predictable when it fails.
+            My core stack is React, TypeScript, Node.js and MongoDB. I like owning a feature end to end, from the database and API to the screen someone actually uses. Today I do that as a Full Stack Developer at Namami Infotech.
           </p>
           <p>
-            I’m continuously experimenting with Redis worker queues, full-stack TypeScript
-            architectures, and making complex computational systems feel lightweight.
+            My curiosity right now is AI. I built a RAG app that answers questions from a real text, and I’m learning LangChain, LangGraph and agentic AI so I can build products that reason over data instead of just displaying it.
           </p>
-          <a
-            className="text-link"
-            href="#newsletter"
-            onClick={(e) => {
-              e.preventDefault();
-              onOpenContact();
-            }}
-          >
-            Get in touch
-            <ArrowUpRight size={16} strokeWidth={2} />
-          </a>
-        </div>
-      </div>
+          <p>
+            This site is where I build in public, with projects that taught me something and ideas that made it out of my notebook.
+          </p>
 
-      <div className="working-principles">
-        <p className="eyebrow">Guiding heuristics</p>
-        <h2>
-          Working principles<span className="violet">.</span>
-        </h2>
-
-        {principles.map((item) => {
-          const Icon = item.icon;
-          return (
-            <div key={item.num} className="principle-row">
-              <span className="mono">{item.num}</span>
-              <Icon size={24} strokeWidth={1.5} />
-              <h3>{item.title}</h3>
-              <p>{item.desc}</p>
+          <div className="about-strengths">
+            <h3 className="strengths-title mono">Where I’m strongest</h3>
+            <div className="strengths-list">
+              <div className="strength-item">
+                <span className="strength-tag mono">Frontend:</span>
+                <span className="strength-desc">React, Redux Toolkit, Tailwind CSS, TypeScript</span>
+              </div>
+              <div className="strength-item">
+                <span className="strength-tag mono">Backend:</span>
+                <span className="strength-desc">Node.js, Express, MongoDB, Firebase</span>
+              </div>
+              <div className="strength-item">
+                <span className="strength-tag mono">AI:</span>
+                <span className="strength-desc">RAG pipelines, LangChain, LangGraph</span>
+              </div>
             </div>
-          );
-        })}
+          </div>
+
+          <div className="about-actions">
+            <a
+              href="/Sakshi_Arya_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button button-primary"
+            >
+              <FileText size={15} strokeWidth={2} />
+              View Resume
+              <ArrowUpRight size={15} strokeWidth={2} />
+            </a>
+            <a
+              className="button button-ghost"
+              href="https://www.linkedin.com/in/sakshi-arya-8aa820307"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Say hello
+              <ArrowUpRight size={15} strokeWidth={2} />
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );
 }
+

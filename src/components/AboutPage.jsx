@@ -1,34 +1,6 @@
 import React from "react";
-import { ArrowUpRight, ArrowLeft, Terminal, GitBranch, BookOpen } from "lucide-react";
+import { ArrowUpRight, ArrowLeft, FileText } from "lucide-react";
 import NewsletterSection from "./NewsletterSection";
-
-const principles = [
-  {
-    num: "01",
-    Icon: Terminal,
-    title: "Simple before clever.",
-    desc: "Readable code and clear behavior beat a clever abstraction. Build what the problem needs, not what the trend demands.",
-  },
-  {
-    num: "02",
-    Icon: GitBranch,
-    title: "Build in the open.",
-    desc: "Ship the unfinished idea. Share what worked and what didn't. Make it easier for the next person to learn, contribute, and improve it.",
-  },
-  {
-    num: "03",
-    Icon: BookOpen,
-    title: "Stay a beginner.",
-    desc: "Ask the obvious question. Read the source. Keep a notebook. There is always a deeper explanation worth looking for.",
-  },
-];
-
-const facts = [
-  { label: "location", value: "Delhi, India" },
-  { label: "role", value: "Full Stack Developer" },
-  { label: "education", value: "B.Tech CSE, DCRUST" },
-  { label: "learning", value: "LangChain · LangGraph · Agentic AI" },
-];
 
 export default function AboutPage({ onBackToIntro, onOpenPrivacy }) {
   return (
@@ -80,70 +52,57 @@ export default function AboutPage({ onBackToIntro, onOpenPrivacy }) {
             Hi, I&apos;m Sakshi<span className="violet">.</span>
           </h2>
           <p className="about-lede">
-            A full stack developer who cares as much about understanding the
-            problem as writing the code.
+            I build full stack products and care about the details that make them feel finished.
           </p>
           <p>
-            I started with a diploma in Computer Science, then did my B.Tech
-            in CSE at DCRUST. Since then I&apos;ve worked across the stack:
-            Node.js and Express at Rifcare Tech, React at Webmaska, and now
-            as a Full Stack Developer at Namami Infotech.
+            My core stack is React, TypeScript, Node.js and MongoDB. I like owning a feature end to end, from the database and API to the screen someone actually uses. Today I do that as a Full Stack Developer at Namami Infotech.
           </p>
           <p>
-            Lately I&apos;m spending my time on AI: I&apos;ve built a RAG
-            pipeline, and I&apos;m learning LangChain, LangGraph and agentic
-            AI. I want to build apps that don&apos;t just show data, but
-            understand it.
+            My curiosity right now is AI. I built a RAG app that answers questions from a real text, and I’m learning LangChain, LangGraph and agentic AI so I can build products that reason over data instead of just displaying it.
           </p>
           <p>
-            This site is my workbench in public: projects that taught me
-            something and ideas that made it out of my notebook.
+            This site is where I build in public, with projects that taught me something and ideas that made it out of my notebook.
           </p>
-          <a
-            className="text-link"
-            href="https://www.linkedin.com/in/sakshi-arya-8aa820307"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Say hello
-            <ArrowUpRight size={16} strokeWidth={2} />
-          </a>
-        </div>
-      </section>
 
-      {/* ── Working Principles ── */}
-      <section className="working-principles section-rail">
-        <p className="eyebrow">A few things I come back to</p>
-        <h2>
-          How I like to work<span className="violet">.</span>
-        </h2>
-
-        <div className="principle-rows">
-          {principles.map(({ num, Icon, title, desc }) => (
-            <div key={num} className="principle-row">
-              <span className="mono">{num}</span>
-              <Icon size={25} strokeWidth={1.2} />
-              <h3>{title}</h3>
-              <p>{desc}</p>
+          <div className="about-strengths">
+            <h3 className="strengths-title mono">Where I’m strongest</h3>
+            <div className="strengths-list">
+              <div className="strength-item">
+                <span className="strength-tag mono">Frontend:</span>
+                <span className="strength-desc">React, Redux Toolkit, Tailwind CSS, TypeScript</span>
+              </div>
+              <div className="strength-item">
+                <span className="strength-tag mono">Backend:</span>
+                <span className="strength-desc">Node.js, Express, MongoDB, Firebase</span>
+              </div>
+              <div className="strength-item">
+                <span className="strength-tag mono">AI:</span>
+                <span className="strength-desc">RAG pipelines, LangChain, LangGraph</span>
+              </div>
             </div>
-          ))}
-        </div>
-      </section>
+          </div>
 
-      {/* ── Quick Facts ── */}
-      <section className="about-facts section-rail">
-        <p className="eyebrow">Quick facts</p>
-        <h2>
-          At a glance<span className="violet">.</span>
-        </h2>
-        <div className="facts-grid">
-          {facts.map(({ label, value }) => (
-            <div key={label} className="fact-row mono">
-              <span className="fact-label">{label}</span>
-              <span className="fact-sep">:</span>
-              <span className="fact-value">{value}</span>
-            </div>
-          ))}
+          <div className="about-actions">
+            <a
+              href="/Sakshi_Arya_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button button-primary"
+            >
+              <FileText size={15} strokeWidth={2} />
+              View Resume
+              <ArrowUpRight size={15} strokeWidth={2} />
+            </a>
+            <a
+              className="button button-ghost"
+              href="https://www.linkedin.com/in/sakshi-arya-8aa820307"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Say hello
+              <ArrowUpRight size={15} strokeWidth={2} />
+            </a>
+          </div>
         </div>
       </section>
 
@@ -153,3 +112,4 @@ export default function AboutPage({ onBackToIntro, onOpenPrivacy }) {
     </div>
   );
 }
+

@@ -1,6 +1,6 @@
 import React from "react";
 import NetworkBackground from "./NetworkBackground";
-import { ArrowUpRight, ArrowDown, Terminal, GitBranch } from "lucide-react";
+import { ArrowUpRight, ArrowDown, Terminal, GitBranch, FileText } from "lucide-react";
 import { Github, Linkedin } from "./Icons";
 
 export default function Hero({ onExploreWork }) {
@@ -54,6 +54,16 @@ export default function Hero({ onExploreWork }) {
             Explore my work
             <ArrowUpRight size={16} strokeWidth={2} />
           </button>
+          <a
+            href="/Sakshi_Arya_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="button button-ghost"
+          >
+            <FileText size={15} strokeWidth={2} />
+            View Resume
+            <ArrowUpRight size={15} strokeWidth={2} />
+          </a>
         </div>
       </div>
 
@@ -68,6 +78,11 @@ export default function Hero({ onExploreWork }) {
         <a href="https://www.linkedin.com/in/sakshi-arya-8aa820307" target="_blank" rel="noreferrer">
           <Linkedin size={13} strokeWidth={2} />
           LinkedIn
+          <ArrowUpRight size={12} strokeWidth={2} />
+        </a>
+        <a href="/Sakshi_Arya_Resume.pdf" target="_blank" rel="noopener noreferrer">
+          <FileText size={13} strokeWidth={2} />
+          Resume
           <ArrowUpRight size={12} strokeWidth={2} />
         </a>
         <a

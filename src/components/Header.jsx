@@ -6,7 +6,8 @@ import {
   Mail,
   ArrowUpRight,
   Menu,
-  X
+  X,
+  FileText
 } from "lucide-react";
 
 export default function Header({ activeView, onGoToProjects, onGoToIntro, onGoToAbout }) {
@@ -116,6 +117,16 @@ export default function Header({ activeView, onGoToProjects, onGoToIntro, onGoTo
           </a>
 
           <a
+            href="/Sakshi_Arya_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-link"
+          >
+            <FileText size={13} strokeWidth={1.8} />
+            <span>Resume</span>
+          </a>
+
+          <a
             href="#newsletter"
             onClick={handleNewsletterClick}
             className="nav-newsletter"
@@ -157,6 +168,10 @@ export default function Header({ activeView, onGoToProjects, onGoToIntro, onGoTo
           <a href="#about" onClick={handleAboutClick} className={isAboutActive ? "is-active" : ""}>
             <UserRound size={14} />
             <span>About</span>
+          </a>
+          <a href="/Sakshi_Arya_Resume.pdf" target="_blank" rel="noopener noreferrer">
+            <FileText size={14} />
+            <span>Resume</span>
           </a>
           <a href="#newsletter" onClick={handleNewsletterClick}>
             <Mail size={14} />
